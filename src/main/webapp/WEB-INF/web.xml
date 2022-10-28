@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>find-by-number</servlet-name>
+        <servlet-class>servlets.FindByNumberServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>find-by-number</servlet-name>
+        <url-pattern>/find-by-number</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>contain-product</servlet-name>
+        <servlet-class>servlets.OrdersThatContainProductServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>contain-product</servlet-name>
+        <url-pattern>/contain-product</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>dont-contain-product</servlet-name>
+        <servlet-class>servlets.OrdersThatDontContainProductsTodayServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dont-contain-product</servlet-name>
+        <url-pattern>/dont-contain-product</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>find-by-sum-amount</servlet-name>
+        <servlet-class>servlets.SumLessThanGivenAmountEqualsToGivenServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>find-by-sum-amount</servlet-name>
+        <url-pattern>/find-by-sum-amount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>new-order</servlet-name>
+        <servlet-class>servlets.NewOrderFromTodayProductsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>new-order</servlet-name>
+        <url-pattern>/new-order</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>delete-order</servlet-name>
+        <servlet-class>servlets.DeleteOrderWithProductOfAmountServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>delete-order</servlet-name>
+        <url-pattern>/delete-order</url-pattern>
+    </servlet-mapping>
+
+</web-app>
