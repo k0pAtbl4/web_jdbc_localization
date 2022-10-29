@@ -172,8 +172,51 @@ public class Repository {
         Connection cp = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/shop", "root", "1qaz2wsxzxcZ1");
 
+        PreparedStatement st = cp.prepareStatement(query);
+        st.executeUpdate();
+    }
+
+    public boolean isUser(String password, String userId) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+        List<Integer> result = new LinkedList<>();
+
+        String query = "SELECT user.id" +
+                " FROM shop.user" +
+                " WHERE user.name = '"  + userId + "'" +
+                " AND user.password = '" + password +"'";
+
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        Connection cp = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/shop", "root", "1qaz2wsxzxcZ1");
+
         Statement st = cp.createStatement();
-        st.executeQuery(query);
+        ResultSet resultSet = st.executeQuery(query);
+
+        while (resultSet.next()) {
+            result.add(resultSet.getInt("id"));
+        }
+        return !result.isEmpty();
+    }
+
+    public boolean isAdminUser(String password, String userId) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+        List<Integer> result = new LinkedList<>();
+
+        String query = "SELECT user.id" +
+                " FROM shop.user" +
+                " WHERE user.name = '"  + userId + "'" +
+                " AND user.password = '" + password +"'" +
+                " AND user.admin = 1";
+
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        Connection cp = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/shop", "root", "1qaz2wsxzxcZ1");
+
+        Statement st = cp.createStatement();
+        ResultSet resultSet = st.executeQuery(query);
+
+        while (resultSet.next()) {
+            result.add(resultSet.getInt("id"));
+        }
+        return !result.isEmpty();
     }
 
 }

@@ -14,7 +14,19 @@ public class DeleteOrderWithProductOfAmountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(
                 "forJsp/deleteOrderWithProductOfAmount.jsp");
-        requestDispatcher.forward(request, response);
+
+        PrintWriter out = response.getWriter();
+
+        HttpSession session = request.getSession(false);
+        if(session != null) {
+            if (session.getAttribute("type").equals("admin")) {
+                requestDispatcher.forward(request, response);
+            } else {
+                out.println("Only for admin users");
+            }
+        } else {
+            out.println("no session");
+        }
     }
 
     @Override
@@ -26,12 +38,10 @@ public class DeleteOrderWithProductOfAmountServlet extends HttpServlet {
         Repository r = new Repository();
         try {
             r.deleteOrderWithProductOfAmount(product, Integer.parseInt(amount));
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
+        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+        requestDispatcher.forward(request, response);
     }
 }

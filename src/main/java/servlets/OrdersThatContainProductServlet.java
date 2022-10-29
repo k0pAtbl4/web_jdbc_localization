@@ -24,11 +24,7 @@ public class OrdersThatContainProductServlet extends HttpServlet {
         Repository r = new Repository();
         try {
             out.println(r.ordersThatContainProduct(product));
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
+        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
     }

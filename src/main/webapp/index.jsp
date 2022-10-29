@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Java homework</title>
+    <title>Main</title>
 </head>
 <body>
 <div>
@@ -10,6 +9,10 @@
 </div>
 
 <div>
+    <div>
+        <a href="login.html">Login</a>
+        <button onclick="location.href='/web_jdbc_war_exploded/logout'">Logout</button>
+    </div>
     <div>
         <button onclick="location.href='/web_jdbc_war_exploded/find-by-number'">Find by number</button>
         <button onclick="location.href='/web_jdbc_war_exploded/contain-product'">Orders that contain product</button>
