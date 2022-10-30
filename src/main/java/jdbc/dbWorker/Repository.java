@@ -181,8 +181,8 @@ public class Repository {
 
         String query = "SELECT user.id" +
                 " FROM shop.user" +
-                " WHERE user.name = '"  + userId + "'" +
-                " AND user.password = '" + password +"'";
+                " WHERE user.name = '" + userId + "'" +
+                " AND user.password = '" + password + "'";
 
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         Connection cp = DriverManager.getConnection(
@@ -202,8 +202,8 @@ public class Repository {
 
         String query = "SELECT user.id" +
                 " FROM shop.user" +
-                " WHERE user.name = '"  + userId + "'" +
-                " AND user.password = '" + password +"'" +
+                " WHERE user.name = '" + userId + "'" +
+                " AND user.password = '" + password + "'" +
                 " AND user.admin = 1";
 
         Class.forName("com.mysql.jdbc.Driver").newInstance();

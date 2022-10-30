@@ -18,7 +18,7 @@ public class NewOrderFromTodayProductsServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         HttpSession session = request.getSession(false);
-        if(session != null) {
+        if (session != null) {
             if (session.getAttribute("type").equals("admin")) {
                 requestDispatcher.forward(request, response);
             } else {

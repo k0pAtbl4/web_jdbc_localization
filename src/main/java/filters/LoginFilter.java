@@ -23,7 +23,7 @@ public class LoginFilter implements Filter {
 
         Repository r = new Repository();
         try {
-            if(r.isUser(password, name)) {
+            if (r.isUser(password, name)) {
                 chain.doFilter(request, response);
             } else {
                 PrintWriter out = response.getWriter();

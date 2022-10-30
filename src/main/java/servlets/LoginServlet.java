@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         Repository r = new Repository();
         try {
-            if(r.isAdminUser(request.getParameter("password"), request.getParameter("name"))) {
+            if (r.isAdminUser(request.getParameter("password"), request.getParameter("name"))) {
                 session.setAttribute("type", "admin");
                 out.println("admin");
             } else {

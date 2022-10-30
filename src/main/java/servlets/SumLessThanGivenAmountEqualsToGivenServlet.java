@@ -26,11 +26,7 @@ public class SumLessThanGivenAmountEqualsToGivenServlet extends HttpServlet {
         Repository r = new Repository();
         try {
             out.println(r.sumLessThanGivenAmountEqualsToGiven(Integer.parseInt(sum), Integer.parseInt(amount)));
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
+        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
     }
