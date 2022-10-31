@@ -15,7 +15,7 @@ public class LoginFilter implements Filter {
 
     public void destroy() {
     }
-
+//test
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         String name = request.getParameter("name");
