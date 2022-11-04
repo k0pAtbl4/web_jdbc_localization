@@ -1,0 +1,39 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<fmt:setBundle basename="messages"/>
+
+<div>
+    <h1>Choose option:</h1>
+</div>
+
+<div>
+    <div>
+        <a href="login.jsp"><fmt:message key="header.login"/></a>
+        <button onclick="location.href='/web_jdbc_war_exploded/logout'"><fmt:message key="header.logout"/></button>
+    </div>
+    <div>
+        <button onclick="location.href='/web_jdbc_war_exploded/find-by-number'">
+            <fmt:message key="header.findByNumber"/></button>
+        <button onclick="location.href='/web_jdbc_war_exploded/contain-product'">
+            <fmt:message key="header.ordersThatContainProduct"/></button>
+        <button onclick="location.href='/web_jdbc_war_exploded/dont-contain-product'">
+            <fmt:message key="header.ordersThatDontContainProductsToday"/></button>
+        <button onclick="location.href='/web_jdbc_war_exploded/find-by-sum-amount'">
+            <fmt:message key="header.findBySumAndAmount"/></button>
+        <button onclick="location.href='/web_jdbc_war_exploded/new-order'">
+            <fmt:message key="header.newOrderFromTodayProducts"/></button>
+        <button onclick="location.href='/web_jdbc_war_exploded/delete-order'">
+            <fmt:message key="header.deleteOrder"/></button>
+    </div>
+
+    <form action="/web_jdbc_war_exploded/LanguageServlet" method="post">
+        <select name="locale">
+            <option value="en_US">English</option>
+            <option value="ru_RU">Russian</option>
+        </select>
+        <input type="submit" value="<fmt:message key="submit"/>">
+    </form>
+</div>
